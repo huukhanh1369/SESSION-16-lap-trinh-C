@@ -7,16 +7,9 @@ void printArray(int *arr, int size)
     }
 }
 
-void newArray(int *arr, int size, int value, int pos)
+void newArray(int *arr, int value, int pos)
 {
-    for( int i = 0 ; i < size ; i++ )
-    {
-        if( i == pos )
-        {
-            *(arr+i) = value;
-            break;
-        }
-    }
+    *(arr+pos) = value;
 }
 
 int main()
@@ -26,13 +19,21 @@ int main()
     int size = sizeof array / sizeof(int);
     printf("nhap vi tri muon thay doi : ");
     scanf("%d",&pos);
+    if (pos < 0 || pos >= size)
+    {
+        printf("vi tri khong hop le\n");
+        return 1;
+    }
     printf(" nhap gia tri muon thay doi : ");
     scanf("%d",&value);
+
     printf("truoc khi thay doi \n") ;
     printArray(array,size);
     printf("\n");
-    newArray(array,size,value,pos);
+
+    newArray(array,value,pos);
     printf("sau khi thay doi \n") ;
-    printArray(array,size);   
+    printArray(array,size);  
+
     return 0;
 }

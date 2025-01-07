@@ -6,6 +6,7 @@ int findValue(int *arr, int value )
         if ( *(arr+i)== value )
             return i;
     }
+    return -1;
 }
 
 int main()
@@ -15,6 +16,13 @@ int main()
     printf("nhap vao so ban muon tim : ");
     scanf("%d",&x);
     int pos = findValue(array, x);
+    if ( pos == -1 )
+    {
+        printf("khong có gia tri %d trong mang",x);
+    }
+    else
+    {
     printf("vi tri cua %d trong mang la : %d",x,pos );
+    }
     return 0;
 }
